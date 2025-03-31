@@ -22,4 +22,6 @@ UC23200137
 
 Comandos necessários para rodar o código:
 
-"npm install typescript tsx ts-node @types/node -D" "npm i fastify @fastify/cors typeorm sqlite3 reflect-metadata" ADIÇÃO DE SCRIPT "dev": "tsx watch src/server.ts" no arquivo package.json para executar "npm run dev"
+"npm install typescript tsx ts-node @types/node -D" 
+"npm i fastify @fastify/cors typeorm sqlite3 reflect-metadata"
+ADIÇÃO DE SCRIPT "dev": "tsx watch src/server.ts" no arquivo package.json para executar "npm run dev"
