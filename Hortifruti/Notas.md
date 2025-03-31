@@ -19,7 +19,7 @@ João Pedro Nunes Neto
 UC23200137
 
 ===========================================
-
+Tentativa  - Feita com Fastify API
 Comandos necessários para rodar o código:
 
 Instalar extensão SQLite Viewer para caso queira visualizar o arquivo .db
@@ -29,3 +29,5 @@ Instalar extensão SQLite Viewer para caso queira visualizar o arquivo .db
 "npm i fastify @fastify/cors typeorm sqlite3 reflect-metadata"
 
 ADIÇÃO DE SCRIPT "dev": "tsx watch src/server.ts" no arquivo package.json para executar "npm run dev"
+
+Baixar extensão REST Client
