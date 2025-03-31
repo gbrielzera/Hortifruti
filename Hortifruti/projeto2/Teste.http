@@ -1,0 +1,39 @@
+GET http://localhost:4500/categorias HTTP/1.1
+
+###
+
+POST http://localhost:4500/CriarCategoria HTTP/1.1
+content-type: application/json
+
+{
+    "nome": "Categoria1",
+    "descricaoCategoria": "Teste de criacao da categoria"
+}
+
+###
+DELETE  http://localhost:4500/categorias/2 HTTP/1.1
+
+
+###
+GET http://localhost:4500/categorias HTTP/1.1
+
+###
+GET http://localhost:4500/produtos HTTP/1.1
+
+###
+POST http://localhost:4500/CriarProduto HTTP/1.1
+content-type: application/json
+
+{
+    "nomeProduto": "ProdutoTeste",
+    "descricao": "Teste pela extensao REST Client",
+    "quantidade": "50",
+    "valor": "530",
+    "categoriaId": "2"
+}
+
+###
+GET http://localhost:4500/produtos HTTP/1.1
+
+###
+DELETE  http://localhost:4500/produtos/2 HTTP/1.1
