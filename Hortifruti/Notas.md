@@ -20,6 +20,7 @@ UC23200137
 
 ===========================================
 Tentativa  - Feita com Fastify API
+
 Comandos necessários para rodar o código:
 
 Instalar extensão SQLite Viewer para caso queira visualizar o arquivo .db
