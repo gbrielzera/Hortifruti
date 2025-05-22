@@ -17,11 +17,17 @@ Colocar atributos com validaçoes (IsString(), IsDateString(), IsEmail() etc) --
 
 # Atualizar as requisiçoes http
 VERBO http://localhost:3000/nome_da_entidade
+
 Content-Type: application/json
+
                                                    <--- essa linha em branco é necessária!!
+                                                   
 {
+
 "atributo1": "VALOR"
+
 "atributo2": "VALOR"
+
 }
 
 # Entrar no app.module.ts
@@ -34,9 +40,11 @@ Colocar no imports: [TypeOrmModule.forRoot({
 
 # Entrar no ENTIDADE.module.ts
 Adicionar o campo:
+
 imports: [TypeOrmModule.forFeature([ENTIDADE ATUAL])]
 
 # Entrar na pasta entities da ENTIDADE e depois no arquivo ENTIDADE.entity.ts
+
 Adicionar colunas do banco de dados da classe (SEM VALIDAÇOES)
 
 @PrimaryColumn() ou Column() com os mesmos atributos do dto e adicionando o ID como PK.
