@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, NotFoundException } from '@nestjs/common';
 import { StatusService } from './status.service';
 import { CreateStatusDto } from './dto/create-status.dto';
 import { UpdateStatusDto } from './dto/update-status.dto';
@@ -18,17 +18,23 @@ export class StatusController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.statusService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    const Status = await this.statusService.findOne(id);
+    if (!Status) throw new NotFoundException();
+    return Status;
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateStatusDto: UpdateStatusDto) {
-    return this.statusService.update(+id, updateStatusDto);
+  async update(@Param('id') id: string, @Body() updateStatusDto: UpdateStatusDto) {
+    const Status = await this.statusService.update(id, updateStatusDto);
+    if (!Status) throw new NotFoundException();
+    return Status
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.statusService.remove(+id);
+  @HttpCode(204)
+  async remove(@Param('id') id: string) {
+    const Status = await this.statusService.remove(id);
+    if (!Status) throw new NotFoundException();
   }
 }
