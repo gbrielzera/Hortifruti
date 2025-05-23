@@ -62,12 +62,16 @@ Criar o método para gerar o nanoid:
 Anotar a classe como @Entity("ENTIDADE") antes do export class ENTIDADE {}
 
 # Entrar no ENTIDADE.service.ts
-Import { Repository } from 'typeorm';
 
-Import { ENTIDADE } from './entities/ENTIDADE.entity'
+import { Repository } from 'typeorm';
+
+import { ENTIDADE } from './entities/ENTIDADE.entity'
 
 import { InjectRepository } from '@nestjs/typeorm';
 
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { ENTIDADE } from './entities/ENTIDADE.entity'
 Renomear os metodos createENTIDADEDto e updateENTIDADEDto para dto apenas, mas só os que estao antes dos dois pontos : !!
 
 Criar o construtor da classe:
