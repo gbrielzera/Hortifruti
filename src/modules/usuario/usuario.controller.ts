@@ -18,7 +18,7 @@ export class UsuarioController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
+  async findOne(@Param('id') id: number) {
     const usuario = await this.usuarioService.findOne(id);
     if (!usuario) throw new NotFoundException();
     return usuario;
@@ -26,7 +26,7 @@ export class UsuarioController {
   }
 
   @Patch(':id')
-  async update(@Param('id') id: string, @Body() updateUsuarioDto: UpdateUsuarioDto) {
+  async update(@Param('id') id: number, @Body() updateUsuarioDto: UpdateUsuarioDto) {
     const usuario = await this.usuarioService.update(id, updateUsuarioDto);
     if (!usuario) throw new NotFoundException();
     return usuario;
@@ -34,8 +34,8 @@ export class UsuarioController {
 
   @Delete(':id')
   @HttpCode(204)
-  async remove(@Param('id') id: string) {
+  async remove(@Param('id') id: number) {
     const usuario = await this.usuarioService.remove(id);
-    if (!usuario) throw new NotFoundException();
+    
   }
 }

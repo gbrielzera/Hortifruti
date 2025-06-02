@@ -1,24 +1,34 @@
-import { BeforeInsert, Column, PrimaryColumn, Entity } from "typeorm";
+import { Endereco } from 'src/modules/endereco/entities/endereco.entity';
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-assignment
-const { nanoid } = require('nanoid');
+export enum UserRole {
+  USER = 'USER',
+  ENTREGADOR = 'ENTREGADOR',
+  LOJISTA = 'LOJISTA',
+}
 
 @Entity('usuario')
 export class Usuario {
+  @PrimaryGeneratedColumn()
+  id_usuario: number;
 
-    @PrimaryColumn()
-    id_usuario: string
+  @Column()
+  username: string;
 
-    @Column()
-    username: string;
+  @Column()
+  senha: string;
 
-    @Column()
-    senha: string;
+  @Column()
+  email: string;
 
-    @BeforeInsert()    
-    generateId() {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        this.id_usuario = `userID_${nanoid()}`
-    }
+  @Column({
+    type: 'varchar',
+    enum: UserRole,
+    default: UserRole.USER,
+  })
+  role: UserRole;
 
+  @OneToOne(() => Endereco, { cascade: true, eager: true })
+  @JoinColumn({ name: 'id_Endereco' }) // opcional: força o nome da coluna no banco
+  endereco: Endereco;  
 }
